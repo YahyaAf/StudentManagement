@@ -33,6 +33,16 @@ class DatabaseConnection:
             )
         ''')
         
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS classes (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                name TEXT NOT NULL,
+                level TEXT NOT NULL,
+                year TEXT NOT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        ''')
+        
         self._connection.commit()
         cursor.close()
     
