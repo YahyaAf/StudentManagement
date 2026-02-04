@@ -57,6 +57,15 @@ class DatabaseConnection:
             )
         ''')
         
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS subjects (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                name TEXT NOT NULL,
+                coefficient REAL NOT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        ''')
+        
         self._connection.commit()
         cursor.close()
     
