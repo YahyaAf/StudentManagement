@@ -66,6 +66,18 @@ class DatabaseConnection:
             )
         ''')
         
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS grades (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                student_id INTEGER NOT NULL,
+                subject_id INTEGER NOT NULL,
+                grade REAL NOT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (student_id) REFERENCES students(id),
+                FOREIGN KEY (subject_id) REFERENCES subjects(id)
+            )
+        ''')
+        
         self._connection.commit()
         cursor.close()
     
