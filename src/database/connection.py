@@ -43,6 +43,20 @@ class DatabaseConnection:
             )
         ''')
         
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS students (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                first_name TEXT NOT NULL,
+                last_name TEXT NOT NULL,
+                email TEXT UNIQUE NOT NULL,
+                phone TEXT NOT NULL,
+                date_of_birth DATE NOT NULL,
+                class_id INTEGER NOT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (class_id) REFERENCES classes(id)
+            )
+        ''')
+        
         self._connection.commit()
         cursor.close()
     
