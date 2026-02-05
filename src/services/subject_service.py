@@ -5,8 +5,8 @@ from ..repositories.subject_repository import SubjectRepository
 
 class SubjectService:
     
-    def __init__(self):
-        self.repository = SubjectRepository()
+    def __init__(self, repository: SubjectRepository):
+        self.repository = repository
     
     def create(self, name: str, coefficient: float) -> Optional[Subject]:
         return self.repository.create(name, coefficient)

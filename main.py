@@ -3,14 +3,25 @@ from src.services.class_service import ClassService
 from src.services.student_service import StudentService
 from src.services.subject_service import SubjectService
 from src.services.grade_service import GradeService
+from src.repositories.user_repository import UserRepository
+from src.repositories.class_repository import ClassRepository
+from src.repositories.student_repository import StudentRepository
+from src.repositories.subject_repository import SubjectRepository
+from src.repositories.grade_repository import GradeRepository
 from datetime import date
 
 
-user_service = UserService()
-class_service = ClassService()
-student_service = StudentService()
-subject_service = SubjectService()
-grade_service = GradeService()
+user_repository = UserRepository()
+class_repository = ClassRepository()
+student_repository = StudentRepository()
+subject_repository = SubjectRepository()
+grade_repository = GradeRepository()
+
+user_service = UserService(user_repository)
+class_service = ClassService(class_repository)
+student_service = StudentService(student_repository)
+subject_service = SubjectService(subject_repository)
+grade_service = GradeService(grade_repository)
 
 
 def display_login_menu():

@@ -5,8 +5,8 @@ from ..repositories.user_repository import UserRepository
 
 class UserService:
     
-    def __init__(self):
-        self.repository = UserRepository()
+    def __init__(self, repository: UserRepository):
+        self.repository = repository
         self.is_logged_in = False
         self.current_user: Optional[User] = None
     

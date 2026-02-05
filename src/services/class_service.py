@@ -5,8 +5,8 @@ from ..repositories.class_repository import ClassRepository
 
 class ClassService:
     
-    def __init__(self):
-        self.repository = ClassRepository()
+    def __init__(self, repository: ClassRepository):
+        self.repository = repository
     
     def create(self, name: str, level: str, year: str) -> Optional[Class]:
         return self.repository.create(name, level, year)

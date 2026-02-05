@@ -5,8 +5,8 @@ from ..repositories.grade_repository import GradeRepository
 
 class GradeService:
     
-    def __init__(self):
-        self.repository = GradeRepository()
+    def __init__(self, repository: GradeRepository):
+        self.repository = repository
     
     def create(self, student_id: int, subject_id: int, grade: float) -> Optional[Grade]:
         return self.repository.create(student_id, subject_id, grade)

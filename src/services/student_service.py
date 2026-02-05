@@ -6,8 +6,8 @@ from ..repositories.student_repository import StudentRepository
 
 class StudentService:
     
-    def __init__(self):
-        self.repository = StudentRepository()
+    def __init__(self, repository: StudentRepository):
+        self.repository = repository
     
     def create(self, first_name: str, last_name: str, email: str, 
                phone: str, date_of_birth: date, class_id: int) -> Optional[Student]:
