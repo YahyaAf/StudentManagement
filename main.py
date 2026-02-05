@@ -244,8 +244,8 @@ def create_student_view():
             print(f"Etudiant cree avec succes: {student}")
         else:
             print("Erreur lors de la creation!")
-    except ValueError:
-        print("Date invalide! Format: YYYY-MM-DD")
+    except ValueError as e:
+        print(f"Erreur: {e}")
 
 
 def get_all_students_view():
@@ -311,8 +311,8 @@ def update_student_view():
         
         if success:
             print("Etudiant modifie avec succes!")
-    except ValueError:
-        print("ID invalide!")
+    except ValueError as e:
+        print(f"Erreur: {e}")
 
 
 def delete_student_view():

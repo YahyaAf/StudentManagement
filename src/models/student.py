@@ -1,8 +1,14 @@
 from typing import Optional
 from datetime import datetime, date
+import re
 
 
 class Student:
+    
+    @staticmethod
+    def is_valid_email(email: str) -> bool:
+        pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+        return re.match(pattern, email) is not None
     
     def __init__(
         self,
@@ -58,8 +64,8 @@ class Student:
     
     @email.setter
     def email(self, value: str):
-        if not value or "@" not in value:
-            raise ValueError("Email invalide")
+        if not value or not Student.is_valid_email(value):
+            raise ValueError("Email format invalide")
         self._email = value
     
     @property
